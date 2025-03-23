@@ -1,0 +1,27 @@
+.venv
+__pycache__/*
+
+.DS_Store
+**/.DS_Store
+
+# Vim swp files
+.swp
+**/*.swp
+
+# Log files
+**/*.log
+
+# Old and new files
+**/*.old
+**/*.new
+
+
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+
+# Backup files # 
+*.bak 
