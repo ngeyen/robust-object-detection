@@ -1,9 +1,5 @@
-# Dev environment
-pip
-autopep8
 
 # App
-flask
 tensorflow>=2.10
 torch>=1.9
 pycocotools
