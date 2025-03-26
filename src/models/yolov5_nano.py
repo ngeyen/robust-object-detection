@@ -10,8 +10,8 @@ def load_model():
     if not os.path.exists(MODEL_PATH):
         torch.hub.download_url_to_file("https://github.com/ultralytics/yolov5/releases/download/v6.2/yolov5n.pt", MODEL_PATH)
     model = torch.hub.load("ultralytics/yolov5", "custom", path=MODEL_PATH, force_reload=False)
-    model.conf = 0.05  # Lower confidence threshold
-    model.iou = 0.3   # Lower NMS IoU threshold
+    model.conf = 0.05  # Confidence threshold for predictions
+    model.iou = 0.3   # NMS IoU threshold for predictions
     return model
 
 def run(image_path, output_dir="experiments/baseline_tests/yolov5_nano", gt_annotations=None):
