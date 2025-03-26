@@ -1,7 +1,7 @@
 .venv
 __pycache__/*
 
-
+experiments/baseline_tests/*
 
 .DS_Store
 **/.DS_Store
