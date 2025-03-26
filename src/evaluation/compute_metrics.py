@@ -127,17 +127,14 @@ def format_predictions_yolov5(preds_tensor, image_id, gt_img_info):
         })
     return {image_id: preds}
 
-if __name__ == "__main__":
-    sample_preds_tensor = torch.tensor([
-        [1.14, 99.00, 93.11, 188.77, 0.4247, 7.0],
-        [484.89, 168.63, 576.83, 258.10, 0.4104, 2.0],
-        [118.17, 166.55, 165.89, 207.19, 0.3767, 2.0]
-    ])
-    with open("data/annotations/coco_occluded_vehicles.json", 'r') as f:
-        gt_data = json.load(f)
-    gt_img_info = {img['id']: img for img in gt_data['images']}
-    pred_dict = format_predictions_yolov5(sample_preds_tensor, 284698, gt_img_info)
-    metrics = evaluate_predictions("data/annotations/coco_occluded_vehicles.json", pred_dict)
-    print("Evaluation Metrics:")
-    for k, v in metrics.items():
-        print(f"{k}: {v:.4f}" if isinstance(v, float) else f"{k}: {v}")
+def format_predictions_ssdlite(preds_array, image_id, gt_img_info):
+    """Format SSDLite-MobileDet predictions (already scaled in run)."""
+    preds = []
+    for pred in preds_array:
+        x_min, y_min, x_max, y_max, conf, cls = pred.tolist()
+        preds.append({
+            'bbox': [x_min, y_min, x_max, y_max],
+            'confidence': conf,
+            'class_id': cls
+        })
+    return {image_id: preds}
