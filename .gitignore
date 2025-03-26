@@ -3,6 +3,7 @@ __pycache__/*
 
 experiments/baseline_tests/*
 data/raw/coco/val2017/*
+data/raw/coco/annotations/*
 
 .DS_Store
 **/.DS_Store
