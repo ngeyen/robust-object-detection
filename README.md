@@ -15,16 +15,18 @@ The MS-COCO dataset needs to be downloaded from the official website. `pycocotoo
 #### Actions:
 
 1.  **Download MS-COCO:**
-    * Navigate to the [cocodataset.org/#download](http://cocodataset.org/#download) website.
-    * Download the following files:
-        * **Test Images:** `test2017.zip` (approximately 6GB).
-        * **Annotations:** `annotations_trainval2017.zip` (approximately 241MB; includes test annotations if using the `test-dev` subset).
-    * Extract the downloaded files into the `data/raw/coco/` directory:
-        * Images should be placed in `data/raw/coco/test2017/`.
-        * Annotations should be placed in `data/raw/coco/annotations/` (e.g., `instances_test2017.json`).
+
+    - Navigate to the [cocodataset.org/#download](http://cocodataset.org/#download) website.
+    - Download the following files:
+      - **Test Images:** `val2017.zip` (approximately 6GB).
+      - **Annotations:** `annotations_trainval2017.zip` (approximately 241MB; includes test annotations if using the `test-dev` subset).
+    - Extract the downloaded files into the `data/raw/coco/` directory:
+      - Images should be placed in `data/raw/coco/val2017/`.
+      - Annotations should be placed in `data/raw/coco/annotations/` (e.g., `instances_val2017.json`).
 
 2.  **Update `scripts/setup_env.sh`:**
-    * Ensure that `pycocotools` is installed correctly. Modify the `scripts/setup_env.sh` script to include a check and installation if it's missing:
+
+    - Ensure that `pycocotools` is installed correctly. Modify the `scripts/setup_env.sh` script to include a check and installation if it's missing:
 
     ```bash
     #!/bin/bash
@@ -37,7 +39,7 @@ The MS-COCO dataset needs to be downloaded from the official website. `pycocotoo
     echo "Environment setup complete."
     ```
 
-    * This script will create a virtual environment, install the required Python packages from `requirements.txt`, and ensure `pycocotools` is installed.
+    - This script will create a virtual environment, install the required Python packages from `requirements.txt`, and ensure `pycocotools` is installed.
 
 **Next Steps:**
 
