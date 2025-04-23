@@ -2,11 +2,11 @@ import os
 import torch
 import json
 import numpy as np
-from src.models import yolov5_nano, ssdlite_mobiledet, mobilenet_ssd, efficientdet_lite0
+from src.models import yolov5_nano, ssdlite_mobiledet, mobilenet_ssd
 from src.evaluation.compute_metrics import evaluate_predictions, format_predictions_yolov5, format_predictions_ssdlite
 
-PROCESSED_DIR = "data/processed/coco_occluded_vehicles"
-GT_FILE = "data/annotations/coco_occluded_vehicles.json"
+PROCESSED_DIR = "data/processed/coco_occluded_kitchen"
+GT_FILE = "data/annotations/coco_occluded_kitchen.json"
 OUTPUT_BASE = "experiments/baseline_tests"
 
 def run_inference():
@@ -26,7 +26,6 @@ def run_inference():
     print(f"Total ground truth annotations: {len(gt_data['annotations'])}")
     
     models = {
-       # "efficientdet_lite0": (efficientdet_lite0.run, format_predictions_yolov5),
         "mobilenet_ssd": (mobilenet_ssd.run, format_predictions_ssdlite),
         "ssdlite_mobiledet": (ssdlite_mobiledet.run, format_predictions_ssdlite),
         "yolov5_nano": (yolov5_nano.run, format_predictions_yolov5),
