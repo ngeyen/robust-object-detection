@@ -43,4 +43,4 @@ The MS-COCO dataset needs to be downloaded from the official website. `pycocotoo
 
 **Next Steps:**
 
-After completing these setup steps, you will be ready to proceed with filtering the MS-COCO dataset for occluded vehicles and setting up the inference for the four models.
+With these setup steps, you will be ready to proceed with filtering the MS-COCO dataset for occluded vehicles and setting up the inference for the four models.
