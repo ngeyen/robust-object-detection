@@ -14,33 +14,33 @@ The MS-COCO dataset needs to be downloaded from the official website. `pycocotoo
 
 #### Actions:
 
-1.  **Download MS-COCO:**
+1. **Download MS-COCO:**
 
-    - Navigate to the [cocodataset.org/#download](http://cocodataset.org/#download) website.
-    - Download the following files:
-      - **Test Images:** `val2017.zip` (approximately 6GB).
-      - **Annotations:** `annotations_trainval2017.zip` (approximately 241MB; includes test annotations if using the `test-dev` subset).
-    - Extract the downloaded files into the `data/raw/coco/` directory:
-      - Images should be placed in `data/raw/coco/val2017/`.
-      - Annotations should be placed in `data/raw/coco/annotations/` (e.g., `instances_val2017.json`).
+   - Navigate to the [cocodataset.org/#download](http://cocodataset.org/#download) website.
+   - Download the following files:
+     - **Test Images:** `val2017.zip` (approximately 6GB).
+     - **Annotations:** `annotations_trainval2017.zip` (approximately 241MB; includes test annotations if using the `test-dev` subset).
+   - Extract the downloaded files into the `data/raw/coco/` directory:
+     - Images should be placed in `data/raw/coco/val2017/`.
+     - Annotations should be placed in `data/raw/coco/annotations/` (e.g., `instances_val2017.json`).
 
-2.  **Update `scripts/setup_env.sh`:**
+2. **Update `scripts/setup_env.sh`:**
 
-    - Ensure that `pycocotools` is installed correctly. Modify the `scripts/setup_env.sh` script to include a check and installation if it's missing:
+   - Ensure that `pycocotools` is installed correctly. Modify the `scripts/setup_env.sh` script to include a check and installation if it's missing:
 
-    ```bash
-    #!/bin/bash
-    echo "Setting up virtual environment..."
-    python3 -m venv venv
-    source venv/bin/activate
-    pip install -r requirements.txt
-    # Install pycocotools if not already included
-    pip install pycocotools
-    echo "Environment setup complete."
-    ```
+   ```bash
+   #!/bin/bash
+   echo "Setting up virtual environment..."
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   # Install pycocotools if not already included
+   pip install pycocotools
+   echo "Environment setup complete."
+   ```
 
-    - This script will create a virtual environment, install the required Python packages from `requirements.txt`, and ensure `pycocotools` is installed.
+   - This script will create a virtual environment, install the required Python packages from `requirements.txt`, and ensure `pycocotools` is installed.
 
-**Next Steps:**
+**Build and Run**
 
-After completing these setup steps, you will be ready to proceed with filtering the MS-COCO dataset for occluded vehicles and setting up the inference for the four models.
+You can build and Run the Flutter application in the `app` directory. be sure to include the quantized model from `retina-vehicle.ipynb` to get acess to the model
